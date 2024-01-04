@@ -1,45 +1,31 @@
-package com.custommade.springboot_tutorial_data.course;
+package com.custommade.springboot_tutorial_data.lesson;
 
-
-
-import com.custommade.springboot_tutorial_data.topic.Topic;
+import com.custommade.springboot_tutorial_data.course.Course;
 
 import jakarta.persistence.Entity;
-
 import jakarta.persistence.Id;
-
 import jakarta.persistence.ManyToOne;
 
-
-
 @Entity
-public class Course {
+public class Lesson {
     @Id
     private String id;
     private String name;
     private String description;
-
+    
     @ManyToOne
-    private Topic topic;
+    private Course course;
     
-    public void setTopic(Topic topic) {
-        this.topic = topic;
-    }
 
-    public Topic getTopic() {
-        return topic;
-    }
-
-    public Course() {
-
-    }
-    
-    public Course(String id, String name, String description, String topicId) {
-        super();
+    public Lesson(String id, String name, String description, String topicId, String courseId) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.topic = new Topic(topicId, "", "");
+        this.course = new Course(courseId, "", "", topicId);
+    }
+
+    public Lesson() {
+        
     }
 
     public String getId() {
@@ -65,8 +51,14 @@ public class Course {
     public void setDescription(String description) {
         this.description = description;
     }
-   
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
+    }
 
     
-
 }

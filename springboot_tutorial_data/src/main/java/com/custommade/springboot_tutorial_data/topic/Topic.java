@@ -1,7 +1,10 @@
 package com.custommade.springboot_tutorial_data.topic;
 
+
 import jakarta.persistence.Entity;
+
 import jakarta.persistence.Id;
+
 
 @Entity
 public class Topic {
@@ -9,6 +12,7 @@ public class Topic {
     private String id;
     private String name;
     private String description;
+
 
     public Topic() {
 
